@@ -69,7 +69,7 @@ class ArticleViewController: UIViewController {
         for index in 0...tagsArr.count-1 {
             var label = UILabel()
             let xPoint:Int = Int(titlelbl.frame.origin.x)
-            label.frame = CGRect(x:xPoint + index*105, y: Int(titlelbl.frame.size.height+10), width: 100, height: 21)
+            label.frame = CGRect(x:xPoint + index*105, y: Int(titlelbl.frame.size.height+50), width: 100, height: 21)
 
             label.text = tagsArr[index]
             label.textAlignment = NSTextAlignment.center
@@ -78,9 +78,6 @@ class ArticleViewController: UIViewController {
             scrollView.addSubview(label)
         }
         
-        
-        // creat labels with tags
-
     }
     
     func updateOccurenceVew(occur: [String: Int]){
@@ -104,7 +101,7 @@ class ArticleViewController: UIViewController {
         }
         print("height before: \(topWordView.frame.size.height)")
         topWordView.frame = CGRect(x: topWordView.frame.origin.x, y: topWordView.frame.origin.y, width: topWordView.frame.size.width, height: CGFloat(20*occur.count + 200));
-        topWordView.backgroundColor = UIColor.red
+        topWordView.backgroundColor = UIColor.lightGray
         print("height after: \(topWordView.frame.size.height)")
 
         // does not change height
@@ -117,15 +114,16 @@ class ArticleViewController: UIViewController {
     {
         print(sender.tag)
         let string = articleBody as String
-        let mutableAttributedString = NSMutableAttributedString(string: string as String)
+        let mutableAttributedString = NSMutableAttributedString(string: string)
         let searchString = Array(occurances.keys)[sender.tag]
         var rangeToSearch = string.startIndex..<string.endIndex
         while let matchingRange = string.range(of: searchString, options: [], range: rangeToSearch) {
-            mutableAttributedString.addAttribute(.foregroundColor, value: UIColor.yellow, range: NSRange(matchingRange, in: string))
+            mutableAttributedString.addAttribute(.foregroundColor, value: UIColor.blue, range: NSRange(matchingRange, in: string))
             rangeToSearch = matchingRange.upperBound..<string.endIndex
         }
         // does not change color fully
-        text?.text = mutableAttributedString.string
+//        mutableAttributedString.mutableString.setString(string)
+        text?.attributedText = mutableAttributedString
         
 }
     
