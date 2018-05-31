@@ -1,0 +1,24 @@
+PODS:
+  - Ji (2.1.0):
+    - Ji/Ji (= 2.1.0)
+  - Ji/Ji (2.1.0):
+    - Ji/Ji-libxml
+  - Ji/Ji-libxml (2.1.0)
+  - ReadabilityKit (0.7.1):
+    - Ji
+
+DEPENDENCIES:
+  - ReadabilityKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Ji
+    - ReadabilityKit
+
+SPEC CHECKSUMS:
+  Ji: 21946da4e13425485ddd424edfaeeced0d80ad28
+  ReadabilityKit: 45e79725f6d0377c555f38d9df7a6d4435898c04
+
+PODFILE CHECKSUM: 59bac8da75982bd927d7484c9894fd45283ed891
+
+COCOAPODS: 1.5.0
